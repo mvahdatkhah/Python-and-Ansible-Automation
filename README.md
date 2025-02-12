@@ -159,6 +159,51 @@ def run_ansible_command(hosts, module, args):
 run_ansible_command("webservers", "shell", "df -h")
 ```
 
+### Querying Ansible Facts
+```python
+import json
+
+def get_ansible_facts(host):
+    command = ["ansible", host, "-m", "setup"]
+    result = subprocess.run(command, capture_output=True, text=True)
+    
+    facts = json.loads(result.stdout.split("\n", 1)[1])  # Extract JSON part
+    print(json.dumps(facts, indent=2))
+
+get_ansible_facts("localhost")
+```
+
+### Using Ansible API
+```python
+from ansible.executor.task_queue_manager import TaskQueueManager
+from ansible.inventory.manager import InventoryManager
+from ansible.parsing.dataloader import DataLoader
+from ansible.vars.manager import VariableManager
+from ansible.playbook.play import Play
+
+def run_ansible_task(hosts, module, args):
+    loader = DataLoader()
+    inventory = InventoryManager(loader=loader, sources=['inventory.ini'])
+    variable_manager = VariableManager(loader=loader, inventory=inventory)
+
+    play_source = {
+        'name': "Ansible Play",
+        'hosts': hosts,
+        'gather_facts': 'no',
+        'tasks': [{'action': {'module': module, 'args': args}}]
+    }
+
+    play = Play().load(play_source, variable_manager=variable_manager, loader=loader)
+    
+    tqm = TaskQueueManager(inventory=inventory, variable_manager=variable_manager, loader=loader)
+    result = tqm.run(play)
+    tqm.cleanup()
+
+    print(f"Task result: {result}")
+
+run_ansible_task("webservers", "ping", "")
+```            
+
 ### Exposing Ansible as a REST API
 ```python
 from flask import Flask, request, jsonify
