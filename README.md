@@ -1,28 +1,28 @@
-# Python and Ansible Automation
+# 🚀 Python and Ansible Automation 🤖
 
-## Introduction
+## 📌 Introduction
 As a Linux administrator with DevOps experience, you can leverage Python to automate repetitive tasks and integrate it with Ansible for enhanced automation. This document covers essential Python scripts for system administration and how to use Python to interact with Ansible effectively.
 
-## Table of Contents
-- [System Administration Scripts](#system-administration-scripts)
-  - [Monitor System Resources](#monitor-system-resources)
-  - [Automate SSH Login and Command Execution](#automate-ssh-login-and-command-execution)
-  - [Backup Important Files](#backup-important-files)
-  - [Monitor Log Files for Errors](#monitor-log-files-for-errors)
-  - [Send Email Alerts](#send-email-alerts)
-  - [Automate User Creation](#automate-user-creation)
-  - [Check Open Ports](#check-open-ports)
-- [Integrating Python with Ansible](#integrating-python-with-ansible)
-  - [Running an Ansible Playbook Using Python](#running-an-ansible-playbook-using-python)
-  - [Using Ansible Runner](#using-ansible-runner)
-  - [Running an Ansible Ad-hoc Command](#running-an-ansible-ad-hoc-command)
-  - [Querying Ansible Facts](#querying-ansible-facts)
-  - [Using Ansible API](#using-ansible-api)
-  - [Exposing Ansible as a REST API](#exposing-ansible-as-a-rest-api)
+## 📜 Table of Contents
+- [🛠️ System Administration Scripts](#system-administration-scripts)
+  - [📊 Monitor System Resources](#monitor-system-resources)
+  - [🔑 Automate SSH Login and Command Execution](#automate-ssh-login-and-command-execution)
+  - [💾 Backup Important Files](#backup-important-files)
+  - [📜 Monitor Log Files for Errors](#monitor-log-files-for-errors)
+  - [📧 Send Email Alerts](#send-email-alerts)
+  - [👤 Automate User Creation](#automate-user-creation)
+  - [🔍 Check Open Ports](#check-open-ports)
+- [🤝 Integrating Python with Ansible](#integrating-python-with-ansible)
+  - [📜 Running an Ansible Playbook Using Python](#running-an-ansible-playbook-using-python)
+  - [⚙️ Using Ansible Runner](#using-ansible-runner)
+  - [💡 Running an Ansible Ad-hoc Command](#running-an-ansible-ad-hoc-command)
+  - [🔍 Querying Ansible Facts](#querying-ansible-facts)
+  - [🖥️ Using Ansible API](#using-ansible-api)
+  - [🌐 Exposing Ansible as a REST API](#exposing-ansible-as-a-rest-api)
 
-## System Administration Scripts
+## 🛠️ System Administration Scripts
 
-### Monitor System Resources
+### 📊 Monitor System Resources
 ```python
 import psutil
 
@@ -34,7 +34,7 @@ def system_monitor():
 system_monitor()
 ```
 
-### Automate SSH Login and Command Execution
+### 🔑 Automate SSH Login and Command Execution
 ```python
 import paramiko
 
@@ -50,7 +50,7 @@ def ssh_command(host, user, password, command):
 ssh_command("192.168.1.10", "root", "password", "uptime")
 ```
 
-### Backup Important Files
+### 💾 Backup Important Files
 ```python
 import shutil
 import os
@@ -65,7 +65,7 @@ def backup(source, destination):
 backup("/etc", "/backup")
 ```
 
-### Monitor Log Files for Errors
+### 📜 Monitor Log Files for Errors
 ```python
 def monitor_log(logfile):
     with open(logfile, 'r') as file:
@@ -76,7 +76,7 @@ def monitor_log(logfile):
 monitor_log("/var/log/syslog")
 ```
 
-### Send Email Alerts
+### 📧 Send Email Alerts
 ```python
 import smtplib
 from email.mime.text import MIMEText
@@ -95,7 +95,7 @@ def send_email(subject, body, to_email):
 send_email("Server Alert", "High CPU usage detected!", "admin@example.com")
 ```
 
-### Automate User Creation
+### 👤 Automate User Creation
 ```python
 import os
 
@@ -106,7 +106,7 @@ def create_user(username, password):
 create_user("newuser", "password123")
 ```
 
-### Check Open Ports
+### 🔍 Check Open Ports
 ```python
 import socket
 
@@ -120,9 +120,9 @@ def check_open_ports(host, ports):
 check_open_ports("127.0.0.1", [22, 80, 443])
 ```
 
-## Integrating Python with Ansible
+## 🤝 Integrating Python with Ansible
 
-### Running an Ansible Playbook Using Python
+### 📜 Running an Ansible Playbook Using Python
 ```python
 import subprocess
 
@@ -135,7 +135,7 @@ def run_ansible_playbook(playbook, inventory):
 run_ansible_playbook("deploy.yml", "inventory.ini")
 ```
 
-### Using Ansible Runner
+### 🚀 Using Ansible Runner
 ```python
 import ansible_runner
 
@@ -148,7 +148,7 @@ def run_ansible_playbook(playbook, inventory):
 run_ansible_playbook("deploy.yml", "inventory.ini")
 ```
 
-### Running an Ansible Ad-hoc Command
+### ⚡ Running an Ansible Ad-hoc Command
 ```python
 def run_ansible_command(hosts, module, args):
     command = ["ansible", hosts, "-m", module, "-a", args]
@@ -159,7 +159,7 @@ def run_ansible_command(hosts, module, args):
 run_ansible_command("webservers", "shell", "df -h")
 ```
 
-### Querying Ansible Facts
+### 📡 Querying Ansible Facts
 ```python
 import json
 
@@ -173,7 +173,7 @@ def get_ansible_facts(host):
 get_ansible_facts("localhost")
 ```
 
-### Using Ansible API
+### 🌐 Using Ansible API
 ```python
 from ansible.executor.task_queue_manager import TaskQueueManager
 from ansible.inventory.manager import InventoryManager
@@ -204,7 +204,7 @@ def run_ansible_task(hosts, module, args):
 run_ansible_task("webservers", "ping", "")
 ```            
 
-### Exposing Ansible as a REST API
+### 🔌 Exposing Ansible as a REST API
 ```python
 from flask import Flask, request, jsonify
 import subprocess
@@ -226,5 +226,5 @@ if __name__ == "__main__":
     app.run(debug=True)
 ```
 
-## Conclusion
-By integrating Python with Ansible, you can create powerful automation workflows that enhance system administration and DevOps practices. This guide provides a starting point for further customization based on specific infrastructure needs.
+## ✅ Conclusion
+By integrating Python with Ansible, you can create powerful automation workflows that enhance system administration and DevOps practices. 🚀💡
