@@ -14,11 +14,11 @@ As a Linux administrator with DevOps experience, you can leverage Python to auto
   - [🔍 Check Open Ports](#check-open-ports)
 - [🤝 Integrating Python with Ansible](#integrating-python-with-ansible)
   - [📜 Running an Ansible Playbook Using Python](#running-an-ansible-playbook-using-python)
-  - [⚙️ Using Ansible Runner](#using-ansible-runner)
+  - [🚀 Using Ansible Runner](#using-ansible-runner)
   - [💡 Running an Ansible Ad-hoc Command](#running-an-ansible-ad-hoc-command)
-  - [🔍 Querying Ansible Facts](#querying-ansible-facts)
-  - [🖥️ Using Ansible API](#using-ansible-api)
-  - [🌐 Exposing Ansible as a REST API](#exposing-ansible-as-a-rest-api)
+  - [📡 Querying Ansible Facts](#querying-ansible-facts)
+  - [🌐 Using Ansible API](#using-ansible-api)
+  - [🔌 Exposing Ansible as a REST API](#exposing-ansible-as-a-rest-api)
 
 ## 🛠️ System Administration Scripts
 
